@@ -50,7 +50,7 @@ export default function SectionTablaCasos() {
 
             <Column field='Proveedor' 
                 header={<ButtonsHeaderTabla NombreColumna={'Proveedor'}/>}
-                body={(Data)=><Proveedor contenido={Data.Proveedor}/>}
+                body={(Data)=><Proveedor Dcasos={`/bandeja-de-casos/${Data.ID}`} contenido={Data.Proveedor}/>}
             />
 
             <Column field='Fecha' 

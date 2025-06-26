@@ -4,7 +4,7 @@ export default function TRoundedBodyTabla() {
     const Tipo_de_caso = ({Status}) =>{
         if(Status === 'Reclamo'){
             return(<div className="text-center text-red-600 px-2 py-1 border border-red-600 rounded-xl">{Status}</div>)
-        }else if(Status === 'Meditacion'){
+        }else if(Status === 'Mediacion'){
             return(<div className="text-center text-amber-500 px-2 py-1 border border-amber-500 0 rounded-xl">{Status}</div>)
         }else if(Status === 'Denuncia'){
             return(<div className="text-center text-blue-600 px-2 py-1 border border-blue-600 0 rounded-xl">{Status}</div>)

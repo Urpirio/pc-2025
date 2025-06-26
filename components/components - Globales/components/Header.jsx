@@ -23,7 +23,7 @@ export default function Header() {
             Panel informativo
         </Link>
         <Link href={'/bandeja-de-casos'} className={`text-[16px] text-blue-900 
-          ${pathname === '/bandeja-de-casos' ? 'text-blue-900' : 'text-gray-500 hover:text-blue-900 transition-colors duration-300'}`}>
+          ${pathname === '/bandeja-de-casos' || pathname === '/bandeja-de-casos/crear-casos' ? 'text-blue-900' : 'text-gray-500 hover:text-blue-900 transition-colors duration-300'}`}>
             Bandeja de casos
         </Link>
         <Link href={'/proveedores'} className={`text-[16px] text-blue-900 

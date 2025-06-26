@@ -16,7 +16,7 @@ export const TablaCasos = [
     {
         ID: 'R-2024-08-28-0030',
         Via: 'Internet',
-        Tipo_de_caso: 'Meditacion',
+        Tipo_de_caso: 'Mediacion',
         Departamento: 'Analisis',
         Proveedor: 'La sirena',
         Fecha: '28/08/2024',
@@ -26,7 +26,7 @@ export const TablaCasos = [
         Actualizacion: '28/08/2024',
     },
     {
-        ID: 'R-2024-08-28-0031',
+        ID: 'R-2024-08-28-0035',
         Via: 'Internet',
         Tipo_de_caso: 'Orientacion',
         Departamento: 'Analisis',
@@ -38,7 +38,7 @@ export const TablaCasos = [
         Actualizacion: '28/08/2024',
     },
     {
-        ID: 'R-2024-08-28-0031',
+        ID: 'R-2024-08-28-0032',
         Via: 'Internet',
         Tipo_de_caso: 'Denuncia',
         Departamento: 'Analisis',
@@ -50,7 +50,7 @@ export const TablaCasos = [
         Actualizacion: '28/08/2024',
     },
     {
-        ID: 'R-2024-08-28-0031',
+        ID: 'R-2024-08-28-0033',
         Via: 'Internet',
         Tipo_de_caso: 'Orientacion',
         Departamento: 'Analisis',
@@ -62,7 +62,7 @@ export const TablaCasos = [
         Actualizacion: '28/08/2024',
     },
     {
-        ID: 'R-2024-08-28-0029',
+        ID: 'R-2024-08-28-0045',
         Via: 'Internet',
         Tipo_de_caso: 'Reclamo',
         Departamento: 'Analisis',
@@ -74,9 +74,9 @@ export const TablaCasos = [
         Actualizacion: '28/08/2024',
     },
     {
-        ID: 'R-2024-08-28-0030',
+        ID: 'R-2024-08-28-0039',
         Via: 'Internet',
-        Tipo_de_caso: 'Meditacion',
+        Tipo_de_caso: 'Mediacion',
         Departamento: 'Analisis',
         Proveedor: 'La sirena',
         Fecha: '28/08/2024',

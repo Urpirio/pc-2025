@@ -3,13 +3,12 @@ import { Dialog } from "primereact/dialog";
 import { IoMdClose } from "react-icons/io";
 import { Dropdown } from "primereact/dropdown";
 import { useEffect, useState } from "react";
-import { DataDropDown } from "../Data/Data - DropDown";
-import {  } from "react-icons/io";
+import { DataDropDown } from "../../components - Globales/Data/Data - DropDown";
 
 export let SetDialogOpen;
 export default function ModalFiltros() {
 
-    const [DialogOpen, setDialogOpen] = useState();
+    const [DialogOpen, setDialogOpen] = useState(false);
     SetDialogOpen = setDialogOpen;
 
     const [SelectProveedor,setSelectProveedor] = useState();
@@ -29,7 +28,7 @@ export default function ModalFiltros() {
 
   return (
    <section className={`w-full h-screen  backdrop-blur-lg z-40 ${DialogOpen ? 'flex' : 'hidden'} justify-end items-center  absolute`} >
-     <Dialog visible={DialogOpen} closeIcon={true} position="right" className=" h-full border bg-white border-gray-300 shadow-2xs   rounded-2xl p-5">
+     <Dialog visible={DialogOpen}  closeIcon={true} closeOnEscape onHide={()=>{if (!DialogOpen) return; setDialogOpen(false) }} position="right" className=" h-full border bg-white border-gray-300 shadow-2xs   rounded-2xl p-5">
         <section className=" flex justify-between items-center">
                 <h2 className="text-2xl text-blue-900 font-bold">Filtros</h2>
                 <button onClick={()=>{
