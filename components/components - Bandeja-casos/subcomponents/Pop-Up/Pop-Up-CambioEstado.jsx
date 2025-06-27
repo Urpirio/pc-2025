@@ -13,7 +13,7 @@ export default function PopUpCambioEstado() {
 
     const [DeployPopUpCambioEstado,setDeployPopUpCambioEstado] = useState(false);
     SetDeployPopUpCambioEstado = setDeployPopUpCambioEstado;
-    const [selectedOption,setSelectedOption] = useState('')
+    const [selectedOption,setSelectedOption] = useState('');
 
   return (
    <Dialog visible={DeployPopUpCambioEstado} position="center" closeIcon={true} closeOnEscape blockScroll 

@@ -20,9 +20,7 @@
 .p-dialog-mask{
     backdrop-filter: blur(10px);
 }
-.p-dialog{
-    
-}
+
 .p-dialog-content{
     scrollbar-width: none;
 }
@@ -31,4 +29,23 @@
 }
 .p-icon{
     color: #808080c5;
+}
+.p-megamenu-panel{
+    /* padding: 20px; */
+    display: flex;
+    flex-direction: column;
+
+}
+.p-megamenu-grid{
+    border-radius: 10px;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+}
+.p-megamenu-grid > ul{
+    border: 1px solid black
+}
+.p-megamenu-col-6 > li{
+    border: 1px solid black;
+    width: auto;
 }

@@ -6,6 +6,7 @@ import { MdOutlineMailOutline } from "react-icons/md";
 import { TfiMenuAlt } from "react-icons/tfi";
 import { LuSquarePen } from "react-icons/lu";
 import { IoArrowBackOutline } from "react-icons/io5";
+import { SetDeployPopUp_POST_PUT_Provedor } from "../Subcomponents/Pop-Up/Pop-Up - POST-PUT-Proveedorr";
 import Link from "next/link";
 
 export default function Sectionheader() {
@@ -47,9 +48,8 @@ export default function Sectionheader() {
     </article>
     </div>
     <div className="flex justify-end">
-      <button onClick={()=>{
-
-      }} className="flex items-center border bg-blue-900 text-white gap-2 px-5 py-2 hover:bg-blue-900/80 transition-all duration-300 cursor-pointer rounded-md"> 
+      <button onClick={()=>SetDeployPopUp_POST_PUT_Provedor(true)} 
+        className="flex items-center border bg-blue-900 text-white gap-2 px-5 py-2 hover:bg-blue-900/80 transition-all duration-300 cursor-pointer rounded-md"> 
         <LuSquarePen />
         <span>Editar proveedor</span>
       </button>

@@ -1,9 +1,10 @@
 'use client';
 import { Column } from "primereact/column";
 import { DataTable } from "primereact/datatable";
-import ButtonsHeaderTabla from "../../components - Bandeja-casos/subcomponents/Buttons/Buttons - HeaderTabla";
-import ButtonsBodyTabla from "../../components - Bandeja-casos/subcomponents/Buttons/Buttons - BodyTabla";
+import ButtonsHeaderTabla from "../../components - Globales/subcomponents/Buttons/Buttons - HeaderTabla";
+import ButtonsBodyTabla from "../../components - Globales/subcomponents/Buttons/Buttons - BodyTabla";
 import { DataTableProveedores } from "../Data/Data - TablaProveedores";
+
 
 export default function SectionTablaProveedores() {
 

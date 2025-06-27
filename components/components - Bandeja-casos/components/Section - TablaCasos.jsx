@@ -4,9 +4,9 @@ import { Column } from 'primereact/column';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { TablaCasos } from '../Data/Data - TablaCasos';
-import ButtonsHeaderTabla from '../subcomponents/Buttons/Buttons - HeaderTabla';
-import ButtonsBodyTabla from '../subcomponents/Buttons/Buttons - BodyTabla';
-import TRoundedBodyTabla from '../subcomponents/TRounded/TRounded - BodyTabla';
+import ButtonsHeaderTabla from '../../components - Globales/subcomponents/Buttons/Buttons - HeaderTabla';
+import ButtonsBodyTabla from '../../components - Globales/subcomponents/Buttons/Buttons - BodyTabla';
+import TRoundedBodyTabla from '../../components - Globales/subcomponents/TRounded/TRounded - BodyTabla';
 
 
 export default function SectionTablaCasos() {

@@ -1,7 +1,7 @@
 'use client';
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
-import TRoundedBodyTabla from "../../subcomponents/TRounded/TRounded - BodyTabla";
+import TRoundedBodyTabla from "../../../components - Globales/subcomponents/TRounded/TRounded - BodyTabla";
 import { DataTablaIncasos } from "../../Data/Data - TablaIncasos";
 
 

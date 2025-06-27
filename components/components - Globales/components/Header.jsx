@@ -5,13 +5,16 @@ import Logo from '@/../public/Img/img - Panel-informativo/logo-2.png';
 import { IoMdNotificationsOutline } from "react-icons/io";
 import { FiUser } from "react-icons/fi";
 import { usePathname } from "next/navigation";
+import {ButtonsHeader} from "../subcomponents/Buttons/buttons - Header";
 
 export default function Header() {
 
   const pathname = usePathname();
+  const { BtnAdministrativo,setMenuAdminDeploy } = ButtonsHeader();
+
 
   return (
-   <header className="flex justify-between items-center border border-gray-200 px-5">
+   <header onPointerLeave={()=>setMenuAdminDeploy(false)} className="flex justify-between items-center border border-gray-200 px-5">
     <div className="h-full border-r border-gray-200 px-5 flex items-center">
       <Image className="w-50 h-17 object-contain" src={Logo} alt={'Logo'} />
     </div>
@@ -34,10 +37,9 @@ export default function Header() {
           ${pathname === '/consumidores' ? 'text-blue-900' : 'text-gray-500 hover:text-blue-900 transition-colors duration-300'}`}>
             Consumidores
         </Link>
-        <Link href={'/administracion'} className={`text-[16px] text-blue-900 
-          ${pathname === '/administracion' ? 'text-blue-900' : 'text-gray-500 hover:text-blue-900 transition-colors duration-300'}`}>
-            Administracion
-        </Link>
+
+        <BtnAdministrativo/>
+       
       </nav>
       
     </div>

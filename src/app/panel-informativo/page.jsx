@@ -1,4 +1,4 @@
-import Header from "../../../components/components - Globales/components/Header";
+// import Header from "../../../components/components - Globales/components/Header";
 import SectionCasos from "../../../components/components - Panel-Informativo/components/Section - Casos";
 import SectionCardCasos from "../../../components/components - Panel-Informativo/components/Section - CardCasos";
 import SectionGridChart from "../../../components/components - Panel-Informativo/components/Section - GridChart";
@@ -6,7 +6,7 @@ import SectionGridChart from "../../../components/components - Panel-Informativo
 export default function page() {
   return (
    <body>
-    <Header/>
+    {/* <Header/> */}
     <main>
         <SectionCasos />
         <SectionCardCasos />

@@ -4,7 +4,7 @@ import { RxMixerHorizontal } from "react-icons/rx";
 import { InputText } from "primereact/inputtext";
 import { useState } from "react";
 import { SetDeployPopUpFiltroProveedores } from "../Subcomponents/Pop-Up/Pop-Up - Filtro";
-
+import { SetDeployPopUp_POST_PUT_Provedor } from "../Subcomponents/Pop-Up/Pop-Up - POST-PUT-Proveedorr";
 
 export default function SectionProveedores() {
 
@@ -22,7 +22,8 @@ export default function SectionProveedores() {
                     value={Textvalue} onChange={(e)=>{setTextvalue(e.target.value)}} />
                 </div>
                 <div className="flex items-center gap-2">
-                    <button className="flex items-center bg-blue-900 px-3 py-2 rounded-md text-white">
+                    <button onClick={()=>SetDeployPopUp_POST_PUT_Provedor(true)} 
+                        className="flex items-center bg-blue-900 px-3 py-2 rounded-md text-white hover:bg-blue-900/80 transition-all duration-300 cursor-pointer">
                         <GoPlus/>
                         <span>Agregar Proveedor</span>
                     </button>
