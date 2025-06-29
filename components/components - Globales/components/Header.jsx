@@ -7,7 +7,7 @@ import { FiUser } from "react-icons/fi";
 import { usePathname } from "next/navigation";
 import {ButtonsHeader} from "../subcomponents/Buttons/buttons - Header";
 
-export default async function Header({params}) {
+export default  function Header() {
 
 
   const pathname = usePathname();
