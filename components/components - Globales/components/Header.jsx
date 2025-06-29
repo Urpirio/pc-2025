@@ -7,10 +7,13 @@ import { FiUser } from "react-icons/fi";
 import { usePathname } from "next/navigation";
 import {ButtonsHeader} from "../subcomponents/Buttons/buttons - Header";
 
-export default function Header() {
+export default async function Header({params}) {
+
 
   const pathname = usePathname();
   const { BtnAdministrativo,setMenuAdminDeploy } = ButtonsHeader();
+
+
 
 
   return (
@@ -22,19 +25,19 @@ export default function Header() {
     
       <nav className=" w-full flex gap-5 pl-10  items-center">
         <Link href={'/panel-informativo'} className={`text-[16px] text-blue-900 
-          ${pathname === '/panel-informativo' ? 'text-blue-900' : 'text-gray-500 hover:text-blue-900 transition-colors duration-300'}`}>
+          ${pathname.includes('/panel-informativo') ? 'text-blue-900' : 'text-gray-500 hover:text-blue-900 transition-colors duration-300'}`}>
             Panel informativo
         </Link>
         <Link href={'/bandeja-de-casos'} className={`text-[16px] text-blue-900 
-          ${pathname === '/bandeja-de-casos' || pathname === '/bandeja-de-casos/crear-casos' ? 'text-blue-900' : 'text-gray-500 hover:text-blue-900 transition-colors duration-300'}`}>
+          ${pathname.includes('/bandeja-de-casos' ) ? 'text-blue-900' : 'text-gray-500 hover:text-blue-900 transition-colors duration-300'}`}>
             Bandeja de casos
         </Link>
         <Link href={'/proveedores'} className={`text-[16px] text-blue-900 
-          ${pathname === '/proveedores' ? 'text-blue-900' : 'text-gray-500 hover:text-blue-900 transition-colors duration-300'}`}>
+          ${pathname.includes('/proveedores') ? 'text-blue-900' : 'text-gray-500 hover:text-blue-900 transition-colors duration-300'}`}>
             Proveedores
         </Link>
         <Link href={'/consumidores'} className={`text-[16px] text-blue-900 
-          ${pathname === '/consumidores' ? 'text-blue-900' : 'text-gray-500 hover:text-blue-900 transition-colors duration-300'}`}>
+          ${pathname.includes('/consumidores')  ? 'text-blue-900' : 'text-gray-500 hover:text-blue-900 transition-colors duration-300'}`}>
             Consumidores
         </Link>
 

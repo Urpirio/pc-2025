@@ -13,7 +13,7 @@ export default function Sectionheader() {
   return (
     <section className="flex items-center justify-between gap-2 border-b border-gray-300 py-5">
     <div className="flex items-center gap-2">
-    <Link href={''} className="bg-blue-100 text-blue-900 p-1 rounded-full">
+    <Link href={'/proveedores'} className="bg-blue-100 text-blue-900 p-1 rounded-full">
         <IoArrowBackOutline/>
     </Link>
     <article className="flex flex-col items-start text-gray-500" >

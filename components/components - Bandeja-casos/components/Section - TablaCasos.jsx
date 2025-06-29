@@ -18,63 +18,48 @@ export default function SectionTablaCasos() {
   return (
     <section className='px-5'>
         <DataTable className='
-        w-full
-        border 
-        border-gray-300 
-        rounded-md
-        text-sm
-        [&_th]:text-gray-500
-        [&_th]:p-3
-        [&_td]:p-3
-        [&_td]:border-gray-300
-        [&_td]:text-gray-900
-        [&_td]:border-t
-        [&_td]:py-3
-       ' value={TablaCasos}>
-            <Column field='ID' 
-                header={<ButtonsHeaderTabla NombreColumna={'ID'}/>}
-            />
+   w-full
+   rounded-md
+   text-sm
+   [&_th]:text-gray-500
+   [&_th>div]:flex
+   [&_th>div]:items-center
+   [&_th>div]:gap-2
+   [&_th]:p-3
+   [&_td]:p-3
+   [&_td]:border-gray-300
+   [&_td]:text-gray-900
+   [&_td]:border-t
+   [&_td]:py-3
 
-            <Column field='Via' 
-                header={<ButtonsHeaderTabla NombreColumna={'Via'}/>}
-            />
+   [&_td>div]:gap-2
 
-            <Column field='Tipo_de_caso' 
-                header={<ButtonsHeaderTabla NombreColumna={'Tipo de caso'}/>} 
-                body={(D)=><Tipo_de_caso Status={D.Tipo_de_caso}/>}
-            />
+  ' value={TablaCasos} paginator paginatorLeft rows={10} rowsPerPageOptions={[1,5,10,20,50,100]} paginatorTemplate=" RowsPerPageDropdown  CurrentPageReport FirstPageLink PrevPageLink NextPageLink LastPageLink"
+  currentPageReportTemplate=" Pagina  {currentPage} de {totalPages}">
+            <Column field='ID' header={'ID'}/>
 
-            <Column field='Departamento' 
-                header={<ButtonsHeaderTabla NombreColumna={'Departamento'}/>}
-            />
+            <Column sortable field='Via' header={'Via'}/>
 
-            <Column field='Proveedor' 
-                header={<ButtonsHeaderTabla NombreColumna={'Proveedor'}/>}
-                body={(Data)=><Proveedor Dcasos={`/bandeja-de-casos/${Data.ID}`} contenido={Data.Proveedor}/>}
-            />
+            <Column sortable field='Tipo_de_caso' header={'Tipo de caso'}
+                body={(D)=><Tipo_de_caso Status={D.Tipo_de_caso}/>}/>
 
-            <Column field='Fecha' 
-                header={<ButtonsHeaderTabla NombreColumna={'Fecha'}/>}
-            />
+            <Column sortable field='Departamento' header={'Departamento'}/>
 
-            <Column field='Estado' 
-                header={<ButtonsHeaderTabla NombreColumna={'Estado'}/>}
-                body={(D) => <Estado Status={D.Estado}/>}
-            />
+            <Column sortable field='Proveedor' header={'Proveedor'}
+                body={(Data)=><Proveedor contenido={Data.Proveedor}/>}/>
 
-            <Column field='Plazo' 
-                header={<ButtonsHeaderTabla NombreColumna={'Plazo'}/>}
-                body={(D) => <Plazo Status={D.Plazo}/>}
-            />
+            <Column sortable field='Fecha' header={'Fecha'}/>
 
-            <Column field='Oficial' 
-                header={<ButtonsHeaderTabla NombreColumna={'Oficial'}/>}
-            />
+            <Column sortable field='Estado' header={'Estado'}
+                body={(D) => <Estado Status={D.Estado}/>}/>
 
-            <Column field='Actualizacion' 
-                header={<ButtonsHeaderTabla NombreColumna={'Actualizacion'}/>} 
-                body={(D)=><Actualizacion contenido={D.Actualizacion}/>}
-            />
+            <Column sortable field='Plazo' header={'Plazo'}
+                body={(D) => <Plazo Status={D.Plazo}/>}/>
+
+            <Column sortable field='Oficial' header={'Oficial'}/>
+
+            <Column sortable field='Actualizacion' header={'Actualizacion'}
+                body={(D)=><Actualizacion contenido={D.Actualizacion} ID={`/bandeja-de-casos/${D.ID}`} />}/>
             
         </DataTable>
     </section>

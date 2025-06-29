@@ -4,17 +4,17 @@ import SectionTablaProveedores from "../../../components/components - Proveedore
 import PopUpFiltro from "../../../components/components - Proveedores/Subcomponents/Pop-Up/Pop-Up - Filtro";
 import PopUp_POST_PUT_Provedor from "../../../components/components - Proveedores/Subcomponents/Pop-Up/Pop-Up - POST-PUT-Proveedorr";
 import Header from "../../../components/components - Globales/components/Header";
-import SectionTablaNavegacion from "../../../components/components - Globales/components/Section - TablaNavegacion";
+// import SectionTablaNavegacion from "../../../components/components - Globales/components/Section - TablaNavegacion";
 
 
 export default function page() {
   return (
     <body>
-        {/* <Header/> */}
+        <Header/>
         <main className="flex flex-col gap-2">
             <SectionProveedores/>
             <SectionTablaProveedores/>
-            <SectionTablaNavegacion/>
+            {/* <SectionTablaNavegacion/> */}
             <PopUpFiltro/>
             <PopUp_POST_PUT_Provedor Cpagina={true} NombrePopUp={'Crear Proveedor'} Description={'Introduzca los datos solicitados para crear el proveedor.'}/>
         </main>

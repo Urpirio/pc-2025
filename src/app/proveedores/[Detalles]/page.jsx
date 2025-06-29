@@ -1,7 +1,7 @@
 import Sectionheader from "../../../../components/components - Proveedores/components - Detalles/Section - header";
 import SectionCardDetalles from "../../../../components/components - Proveedores/components - Detalles/Section -CardDetalles";
 import SectionTablaTipos from "../../../../components/components - Proveedores/components - Detalles/Section - TablaTipos";
-// import Header from "../../../../components/components - Globales/components/Header";
+import Header from "../../../../components/components - Globales/components/Header";
 import PopUp_POST_PUT_Provedor from "../../../../components/components - Proveedores/Subcomponents/Pop-Up/Pop-Up - POST-PUT-Proveedorr";
 
 export default async function pages({params}) {
@@ -9,7 +9,7 @@ export default async function pages({params}) {
 
   return (
     <body>
-        {/* <Header/> */}
+        <Header/>
         <main className="flex flex-col px-5">
            <Sectionheader/>
            <SectionCardDetalles/>

@@ -1,14 +1,37 @@
 'use client';
 import { Dialog } from "primereact/dialog";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { InputText } from "primereact/inputtext";
 import { Dropdown } from "primereact/dropdown";
 
 export let SetDeployPopUp_POST_PUT_Colaboradores;
-export default function PopUp_POST_PUT_Colaboradores({NombrePopUp,Description,Cpagina}) {
 
-  const [DeployPopUp_POST_PUT_Colaboradores, setDeployPopUp_POST_PUT_Colaboradores] = useState(true);
-  SetDeployPopUp_POST_PUT_Colaboradores = setDeployPopUp_POST_PUT_Colaboradores;
+export default function PopUp_POST_PUT_Colaboradores({Cpagina}) {
+
+
+
+    const [DeployPopUp_POST_PUT_Colaboradores, setDeployPopUp_POST_PUT_Colaboradores] = useState(false);
+    SetDeployPopUp_POST_PUT_Colaboradores = setDeployPopUp_POST_PUT_Colaboradores;
+
+
+    //Formulario 
+    const [TextNombre,setTextNombre] = useState();
+    const [TextApellido,setTextApellido] = useState();
+    const [TextCorreo,setTextCorreo] = useState();
+    const [TextTelefono,setTextTelefono] = useState();
+    const [TextOficina,setTextOficina] = useState();
+    const [TextDepartamento,setTextDepartamento] = useState();
+    const [TextRol,setTextRol] = useState();
+    const [TextAsignarSupervisor,setTextAsignarSupervisor] = useState();
+
+
+    useEffect(()=>{
+        if(Cpagina){
+            
+        }else{
+         
+        }
+    },[]);
 
   const Add_or_Update = () => {
     if(Cpagina){
@@ -21,47 +44,56 @@ export default function PopUp_POST_PUT_Colaboradores({NombrePopUp,Description,Cp
 
   return (
     <Dialog visible={DeployPopUp_POST_PUT_Colaboradores} closeOnEscape blockScroll closeIcon={true} position="right" 
-        onHide={()=>setDeployPopUp_POST_PUT_Colaboradores(false)}  className="w-[25%] h-full">
+        onHide={()=>setDeployPopUp_POST_PUT_Colaboradores(false)}  showHeader={false} className="w-[25%] h-full">
         <section className="w-full border border-gray-300 shadow-2xs bg-white rounded-xl p-5 flex flex-col gap-2">
             <div>
-                <h2  className="text-3xl font-semibold text-blue-900">{NombrePopUp}</h2>
-                <p className="text-gray-400 font-extralight">{Description}</p>
+                <h2  className="text-3xl font-semibold text-blue-900">{Cpagina ? 'Crear Colaborador' : 'Editar Colaborador' }</h2>
+                <p className="text-gray-400 font-extralight">{Cpagina ? 'Introduzca los datos necesarios para crear el colaborador' : 'Edita los datos necesarios del colaborador' }</p>
             </div>
             <div className=" flex flex-col gap-2">
                 <div className="flex flex-col">
                     <label>Nombre</label>
-                    <InputText className="border border-gray-300 rounded-md p-2 outline-none"/>
+                    <InputText value={TextNombre} onChange={(e)=>{setTextNombre(e.target.value)}} 
+                    className="border border-gray-300 rounded-md p-2 outline-none"/>
                 </div>
                 <div className="flex flex-col">
                     <label>Apellido</label>
-                    <InputText className="border border-gray-300 rounded-md p-2 outline-none"/>
+                    <InputText value={TextApellido} onChange={(e)=>{setTextApellido(e.target.value)}} 
+                    className="border border-gray-300 rounded-md p-2 outline-none"/>
                 </div>
                 <div className="flex flex-col">
                     <label>Correo electrónico</label>
-                    <InputText className="border border-gray-300 rounded-md p-2 outline-none"/>
+                    <InputText value={TextCorreo} onChange={(e)=>{setTextCorreo(e.target.value)}} 
+                    className="border border-gray-300 rounded-md p-2 outline-none"/>
                 </div>
                 <div className="flex flex-col">
                     <label>Telefono</label>
-                    <InputText className="border border-gray-300 rounded-md p-2 outline-none"/>
+                    <InputText value={TextTelefono} onChange={(e)=>{setTextTelefono(e.target.value) }} 
+                    className="border border-gray-300 rounded-md p-2 outline-none"/>
                 </div>
             </div>
             <div>
                 <div className="flex  flex-col gap-2">
                     <label>Oficina</label>
-                    <Dropdown className="border border-gray-300 rounded-md p-2" placeholder="Seleccionar oficina"/>
+                    <Dropdown value={TextOficina} onChange={(e)=>{setTextOficina(e.target.value)}} 
+                    options={''} optionLabel=""className="border border-gray-300 rounded-md p-2" 
+                    placeholder="Seleccionar oficina"/>
                 </div>
                 <div className="flex  flex-col gap-2">
                     <label>Departamento</label>
-                    <Dropdown className="border border-gray-300 rounded-md p-2" placeholder="Seleccionar departamento"/>
+                    <Dropdown value={TextDepartamento} onChange={(e)=>{setTextDepartamento(e.target.value)}} 
+                    options={''} optionLabel="" className="border border-gray-300 rounded-md p-2" placeholder="Seleccionar departamento"/>
                 </div>
                 <div className="flex  flex-col gap-2">
                     <label>Rol</label>
-                    <Dropdown className="border border-gray-300 rounded-md p-2" placeholder="Seleccionar rol"/>
+                    <Dropdown value={TextRol} onChange={(e)=>{setTextRol(e.target.value)}} 
+                    options={''} optionLabel="" className="border border-gray-300 rounded-md p-2" placeholder="Seleccionar rol"/>
                 </div>
-                <div className="flex  flex-col gap-2">
+                {Cpagina ? <div className="flex  flex-col gap-2">
                     <label>Asignar Supervisor</label>
-                    <Dropdown className="border border-gray-300 rounded-md p-2" placeholder="Seleccionar supervisor"/>
-                </div>
+                    <Dropdown value={TextAsignarSupervisor} onChange={(e)=>{setTextAsignarSupervisor(e.target.value)}} 
+                    options={''} optionLabel="" className="border border-gray-300 rounded-md p-2" placeholder="Seleccionar supervisor"/>
+                </div> : ''}
             </div>
             <div className="flex flex-col gap-2">
                 <button onClick={Add_or_Update} className="border w-full py-2 bg-blue-900 text-white rounded-md cursor-pointer hover:opacity-80 transition-opacity duration-300">Crear colaborador</button>

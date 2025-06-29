@@ -3,13 +3,13 @@ export default function TRoundedBodyTabla() {
 
     const Tipo_de_caso = ({Status}) =>{
         if(Status === 'Reclamo'){
-            return(<div className="text-center text-red-600 px-2 py-1  w-[60%] border border-red-600 rounded-xl">{Status}</div>)
+            return(<div className="text-center text-red-600 px-2 py-1   border border-red-600 rounded-xl">{Status}</div>)
         }else if(Status === 'Mediacion'){
-            return(<div className="text-center text-amber-500 px-2 py-1  w-[60%]  border border-amber-500  rounded-xl">{Status}</div>)
+            return(<div className="text-center text-amber-500 px-2 py-1    border border-amber-500  rounded-xl">{Status}</div>)
         }else if(Status === 'Denuncia'){
-            return(<div className="text-center text-md text-blue-600 px-2 py-1  w-[60%]  border border-blue-600  rounded-xl">{Status}</div>)
+            return(<div className="text-center text-md text-blue-600 px-2 py-1    border border-blue-600  rounded-xl">{Status}</div>)
         }else if(Status === 'Orientacion'){
-            return(<div className="text-center text-green-600 px-2 py-1  w-[60%] border border-green-600 rounded-xl">{Status}</div>)
+            return(<div className="text-center text-green-600 px-2 py-1   border border-green-600 rounded-xl">{Status}</div>)
         }
     };
 

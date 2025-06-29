@@ -12,7 +12,6 @@ export default function SectionProveedores() {
 
     return (
         <section className="flex flex-col gap-4 px-5 py-3">
-    
             <div>
                 <h1 className="text-2xl text-blue-900 font-semibold">Proveedores</h1>
             </div>

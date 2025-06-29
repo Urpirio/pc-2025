@@ -6,11 +6,14 @@ import { useEffect } from "react";
 import { DataTablaTipos } from "../Data/Data - TablaTipos";
 import ButtonsBodyTabla from "../../components - Globales/subcomponents/Buttons/Buttons - BodyTabla";
 import ButtonsHeaderTabla from "../../components - Globales/subcomponents/Buttons/Buttons - HeaderTabla";
+import TRoundedBodyTabla from "../../components - Globales/subcomponents/TRounded/TRounded - BodyTabla";
 
 export default function SectionTablaTipos() {
 
   const [tipo,setTipo] = useState('Todos los tipos');
-  const [DataTabla,setDataTabla] = useState(DataTablaTipos)
+  const [DataTabla,setDataTabla] = useState(DataTablaTipos);
+  const {Actualizacion,Proveedor} = ButtonsBodyTabla();
+  const {Estado,Plazo,Tipo_de_caso} = TRoundedBodyTabla();
 
   useEffect(()=>{
     if(tipo === 'Todos los tipos'){
@@ -54,47 +57,55 @@ export default function SectionTablaTipos() {
         <div className="flex py-2 ">
         <div className="flex gap-2 p-1 rounded-lg bg-gray-100 shadow-2xs">
           <button onClick={()=>setTipo('Todos los tipos')} 
-            className={`px-5 cursor-pointer transition-all duration-300 py-2 rounded-lg  ${tipo === 'Todos los tipos' ? 'bg-white shadow-2xs' : 'text-gray-500 bg-transparent hover:bg-gray-200'}`}>
+            className={`px-5 cursor-pointer transition-all duration-300 py-2 rounded-lg  
+              ${tipo === 'Todos los tipos' ? 'bg-white shadow-2xs' : 'text-gray-500 bg-transparent hover:bg-gray-200'}`}>
               Todos los tipos
           </button>
           <button onClick={()=>setTipo('Denuncias')} 
-            className={`px-5 cursor-pointer transition-all duration-300 py-2 rounded-lg  ${tipo === 'Denuncias' ? 'bg-white shadow-2xs' : 'text-gray-500 bg-transparent hover:bg-gray-200'}`}>
+            className={`px-5 cursor-pointer transition-all duration-300 py-2 rounded-lg  
+              ${tipo === 'Denuncias' ? 'bg-white shadow-2xs' : 'text-gray-500 bg-transparent hover:bg-gray-200'}`}>
             Denuncias
           </button>
           <button onClick={()=>setTipo('Mediacion')} 
-            className={`px-5 cursor-pointer transition-all duration-300 py-2 rounded-lg  ${tipo === 'Mediacion' ? 'bg-white shadow-2xs' : 'text-gray-500 bg-transparent hover:bg-gray-200'}`}>
+            className={`px-5 cursor-pointer transition-all duration-300 py-2 rounded-lg  
+              ${tipo === 'Mediacion' ? 'bg-white shadow-2xs' : 'text-gray-500 bg-transparent hover:bg-gray-200'}`}>
             Mediacion
           </button>
           <button onClick={()=>setTipo('Reclamos')} 
-            className={`px-5 cursor-pointer transition-all duration-300 py-2 rounded-lg  ${tipo === 'Reclamos' ? 'bg-white shadow-2xs' : 'text-gray-500 bg-transparent hover:bg-gray-200'}`}>
+            className={`px-5 cursor-pointer transition-all duration-300 py-2 rounded-lg  
+              ${tipo === 'Reclamos' ? 'bg-white shadow-2xs' : 'text-gray-500 bg-transparent hover:bg-gray-200'}`}>
             Reclamos
           </button>
         </div>
         </div>
-        <div className="overflow-y-scroll">
+        <div >
         <DataTable  value={DataTabla} className='
    w-full
-   border 
-   border-gray-300 
    rounded-md
    text-sm
    [&_th]:text-gray-500
+   [&_th>div]:flex
+   [&_th>div]:items-center
+   [&_th>div]:gap-2
    [&_th]:p-3
    [&_td]:p-3
    [&_td]:border-gray-300
    [&_td]:text-gray-900
    [&_td]:border-t
    [&_td]:py-3
+
+   [&_td>div]:gap-2
+
   '>
           <Column field="ID" header={'ID'} />
-          <Column field="Via"  header={<ButtonsHeaderTabla NombreColumna={'Via'}/>}  />
-          <Column field="TipoCaso" header={<ButtonsHeaderTabla NombreColumna={'Tipo de caso'}/>}/>
-          <Column field="" header={<ButtonsHeaderTabla NombreColumna={'Departamento'}/>}/>
-          <Column field="" header={<ButtonsHeaderTabla NombreColumna={'Proveedor'}/>}/>
-          <Column field="" header={'Fecha'}/>
-          <Column field="" header={<ButtonsHeaderTabla NombreColumna={'Estado'}/>}/>
-          <Column field="" header={<ButtonsHeaderTabla NombreColumna={'Oficial'}/>}/>
-          <Column field="" header={<ButtonsHeaderTabla NombreColumna={'Actualizacion'}/>}/>
+          <Column field="Via"  header={'Via'}  />
+          <Column field="TipoCaso" header={'Tipo de caso'} body={(Data)=><Tipo_de_caso Status={Data.TipoCaso}/>}/>
+          <Column field="Departamento" header={'Departamento'}/>
+          <Column field="Proveedor" header={'Proveedor'} body={(Data)=><Proveedor contenido={Data.Proveedor}/>}/>
+          <Column field="Fecha" header={'Fecha'}/>
+          <Column field="Estado" header={'Estado'} body={(Data)=><Estado Status={Data.Estado}/>}/>
+          <Column field="Oficial" header={'Oficial'}/>
+          <Column field="Actualizacion" header={'Actualizacion'}/>
         </DataTable>
         </div>
     </section>

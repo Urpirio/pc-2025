@@ -18,18 +18,23 @@ export default function SectionDatosGenerales() {
         </div>
         <div className="">
         <DataTable value={DataTablaIncasos} className='
-        w-full
-        border 
-        border-gray-300 
-        rounded-md
-        text-sm
-        [&_th]:text-gray-500
-        [&_th]:p-3
-        [&_td]:p-3
-        [&_td]:border-gray-300
-        [&_td]:text-gray-900
-        [&_td]:border-t
-        [&_td]:py-3'>
+   w-full
+   rounded-md
+   text-sm
+   [&_th]:text-gray-500
+   [&_th>div]:flex
+   [&_th>div]:items-center
+   [&_th>div]:gap-2
+   [&_th]:p-3
+   [&_td]:p-3
+   [&_td]:border-gray-300
+   [&_td]:text-gray-900
+   [&_td]:border-t
+   [&_td]:py-3
+
+   [&_td>div]:gap-2
+
+  '>
             {/* <Column field="ID" header="ID" /> */}
             <Column field="tipo_de_caso" header="Tipo de caso" body={(D)=><Tipo_de_caso Status={D.tipo_de_caso}/>} />
             <Column field="fecha_de_creacion" header="Fecha de creacion" />
