@@ -35,9 +35,9 @@ export default function SectionTablaProveedores() {
     <Column field="RNC" header={'RNC'}/>
     <Column field="Proveedor" header={'Proveedor'} body={(Data)=><Proveedor contenido={Data.Proveedor}/>}/>
     <Column field="Sucursal" header={'Sucursal'}/>
-    <Column field="Casos" header={<ButtonsHeaderTabla NombreColumna={'Casos'}/>}/>
-    <Column field="Abiertos" header={<ButtonsHeaderTabla NombreColumna={'Abierto'}/>}/>
-    <Column field="Cerrados" header={<ButtonsHeaderTabla NombreColumna={'Cerrado'}/>} body={(Data)=><Actualizacion ID={`/proveedores/${Data.RNC}`} contenido={Data.Proveedor}/>}/>
+    <Column field="Casos" sortable header={'Casos'}/>
+    <Column field="Abiertos" sortable header={'Abierto'}/>
+    <Column field="Cerrados" sortable header={'Cerrado'} body={(Data)=><Actualizacion ID={`/proveedores/${Data.RNC}`} contenido={Data.Proveedor}/>}/>
    </DataTable>
    </section>
   )
