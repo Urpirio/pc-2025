@@ -105,3 +105,17 @@
     border: 1px solid #80808043;
     scrollbar-width: none;
 }
+.p-autocomplete-panel{
+    border: 1px solid rgba(0, 0, 0, 0.154);
+    border-radius: 5px;
+    margin-top: 10px;
+    padding: 5px;
+    background: white;
+}
+.p-autocomplete-item{
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 5px;
+}

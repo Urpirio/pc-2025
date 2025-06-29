@@ -15,7 +15,7 @@ export default function SectionConsumidores() {
             <span className="text-sm text-blue-700">30 resultados</span>
         </div>
         <div className="flex justify-between items-center">
-            <InputText placeholder="Buscar caso..." className="border border-gray-300 p-2 rounded-md outline-0 text-gray-500 w-70 shadow-2xs" 
+            <InputText placeholder="Buscar consumidores..." className="border border-gray-300 p-2 rounded-md outline-0 text-gray-500 w-70 shadow-2xs" 
                 value={Textvalue} onChange={(e)=>{setTextvalue(e.target.value)}} />
 
             <button onClick={()=>SetDeployPopUp_POST_PUT_Consumidores(true)} className="flex items-center bg-blue-900 px-3 py-2 rounded-md text-white hover:bg-blue-900/80 transition-all duration-300 cursor-pointer">
