@@ -3,12 +3,13 @@ import { RxCaretDown } from "react-icons/rx";
 import { RxCaretRight } from "react-icons/rx";
 import { useState } from "react";
 import Link from "next/link";
-// import { usePathname } from "next/navigation";
+import { usePathname } from "next/navigation";
 
 export  function ButtonsHeader() {
 
 
   const [MenuAdminDeploy,setMenuAdminDeploy] = useState(false);
+  const PathName = usePathname();
   
   const BtnAdministrativo = () => {
     
@@ -19,16 +20,21 @@ export  function ButtonsHeader() {
             setMenuAdminDeploy(true);
           }
         }}>
-          {MenuAdminDeploy ? <RxCaretDown/> : <RxCaretRight/>}
-          <span>Administracion</span>
+          {MenuAdminDeploy ? <RxCaretDown className={`${PathName === '/oficinas' ||  PathName === '/colaboradores' ? 'text-blue-900' : 'text-gray-600'}`} /> 
+          : <RxCaretRight className={`${PathName === '/oficinas' ||  PathName === '/colaboradores' ? 'text-blue-900' : 'text-gray-600'}`} />}
+          <span className={`${PathName === '/oficinas' ||  PathName === '/colaboradores' ? 'text-blue-900' : 'text-gray-600'}`} >Administracion</span>
         </button>
         <div onPointerLeave={()=>{
           if(MenuAdminDeploy){
             setMenuAdminDeploy(false)
           }
-        }} className={`p-1 w-40 bg-white ${MenuAdminDeploy ? 'flex' : 'hidden'} flex-col border border-gray-300 mt-8 rounded-md absolute`}>
-          <Link className="p-1 hover:bg-blue-50 hover:text-blue-900 rounded-md text-gray-600 transition-all duration-300" href={{pathname:'/colaboradores'}}>Colaboradores</Link>
-          <Link className="p-1 hover:bg-blue-50 hover:text-blue-900 rounded-md text-gray-600 transition-all duration-300" href={{pathname:'/oficinas'}}>Oficinas</Link>
+        }} className={`p-1 w-40 bg-white  flex-col border border-gray-300 mt-8 rounded-md absolute ${MenuAdminDeploy ? 'flex' : 'hidden'}`}>
+          <Link className={`p-1 rounded-md transition-all duration-300 
+          ${PathName === '/colaboradores' ? 'hover:bg-blue-50 text-blue-900 ' : 'hover:bg-blue-50 hover:text-blue-900 text-gray-600'} `} 
+            href={{pathname:'/colaboradores'}}>Colaboradores</Link>
+          <Link className={`p-1 rounded-md  transition-all duration-300 
+          ${PathName === '/oficinas' ? 'hover:bg-blue-50 text-blue-900 ' : 'hover:bg-blue-50 hover:text-blue-900 text-gray-600'}`} 
+            href={{pathname:'/oficinas'}}>Oficinas</Link>
         </div>
        </div>
     )
