@@ -41,8 +41,7 @@ export default function SectionTablasColaboradores({DeployPopUpColaboradores}) {
    [&_td>div]:items-center
    [&_td>div]:gap-2
 
-  ' value={DataTablaColaboradores} paginator paginatorLeft rows={10} rowsPerPageOptions={[1,5,10,20,50,100]} paginatorTemplate=" RowsPerPageDropdown  CurrentPageReport FirstPageLink PrevPageLink NextPageLink LastPageLink"
-    currentPageReportTemplate=" Pagina  {currentPage} de {totalPages}">
+  ' value={DataTablaColaboradores} >
         <Column field="NumeroEmpleado" header={'No. de empleado'} />
         <Column field="Nombre" sortable header={'Nombre'} />
         <Column field="Correo" sortable header={'Correo'} />

@@ -7,6 +7,7 @@ import { TablaCasos } from '../Data/Data - TablaCasos';
 import ButtonsHeaderTabla from '../../components - Globales/subcomponents/Buttons/Buttons - HeaderTabla';
 import ButtonsBodyTabla from '../../components - Globales/subcomponents/Buttons/Buttons - BodyTabla';
 import TRoundedBodyTabla from '../../components - Globales/subcomponents/TRounded/TRounded - BodyTabla';
+import { Paginator } from 'primereact/paginator';
 
 
 export default function SectionTablaCasos() {
@@ -34,8 +35,7 @@ export default function SectionTablaCasos() {
 
    [&_td>div]:gap-2
 
-  ' value={TablaCasos} paginator paginatorLeft rows={10} rowsPerPageOptions={[1,5,10,20,50,100]} paginatorTemplate=" RowsPerPageDropdown  CurrentPageReport FirstPageLink PrevPageLink NextPageLink LastPageLink"
-  currentPageReportTemplate=" Pagina  {currentPage} de {totalPages}">
+  ' value={TablaCasos} >
             <Column field='ID' header={'ID'}/>
 
             <Column sortable field='Via' header={'Via'}/>
@@ -62,6 +62,7 @@ export default function SectionTablaCasos() {
                 body={(D)=><Actualizacion contenido={D.Actualizacion} ID={`/bandeja-de-casos/${D.ID}`} />}/>
             
         </DataTable>
+        {/* <Paginator/> */}
     </section>
   )
 }

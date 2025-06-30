@@ -30,8 +30,7 @@ export default function SectionTablaOficinas({DeployPopUpOficinas}) {
    [&_td]:text-gray-900
    [&_td]:border-t
    [&_td]:py-3
-   [&_td>div]:gap-2' value={DataTablaOficinas} paginator paginatorLeft rows={10} rowsPerPageOptions={[1,5,10,20,50,100]} paginatorTemplate=" RowsPerPageDropdown  CurrentPageReport FirstPageLink PrevPageLink NextPageLink LastPageLink"
-  currentPageReportTemplate=" Pagina  {currentPage} de {totalPages}" >
+   [&_td>div]:gap-2' value={DataTablaOficinas} >
         <Column  field="ID" header={'ID'}/>
         <Column sortable field="Nombre" header={'Nombre'}/>
         <Column sortable field="Direccion" header={'Direccion'}/>

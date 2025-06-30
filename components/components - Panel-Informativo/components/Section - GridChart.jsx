@@ -7,20 +7,20 @@ import CardTiempoResolucion from "../subcomponents/Cards/Card - TiempoResolucion
 
 export default function SectionGridChart() {
   return (
-    <section className="grid grid-cols-2 grid-rows-2 gap-2 px-5 py-2">
+    <section className="grid grid-cols-2  grid-rows-1  gap-2 px-5 py-2">
 
         {/*  Estadistica de Casos */}
-        <div className="col-span-1 row-span-50 border border-gray-300 rounded-xl p-3">
+        <div className="col-span-1 row-span-1 border border-gray-300 rounded-xl p-5">
             <div className="flex items-center border-b border-gray-300 pb-3">
                 <h3 className="text-xl text-blue-900 font-bold">Estadisticas de casos</h3>
             </div>
-            <div className="h-[90%]">
+            <div >
                 <CardEstadisticasCasos />
             </div>
         </div>
 
         {/* Casos por oficina */}
-        <div className="col-span-1 row-span-70 border border-gray-300 rounded-xl p-5">
+        <div className="col-span-1 row-span-1 border border-gray-300 rounded-xl p-5">
             <div className="flex items-center ">
                 <h3 className="text-xl text-blue-900 font-bold">Casos por oficina</h3>
             </div>
@@ -33,7 +33,7 @@ export default function SectionGridChart() {
         </div>
 
         {/* Demografía */}
-        <div className="col-span-1 row-span-50 border flex flex-col gap-10 border-gray-300 rounded-xl p-3">
+        <div className="col-span-1 row-span-1 border flex flex-col gap-10 border-gray-300 rounded-xl p-3">
             <div className="flex items-center">
                 <h3 className="text-xl text-blue-900 font-bold">Demografía</h3>
             </div>
@@ -42,7 +42,7 @@ export default function SectionGridChart() {
                <CardDemografia/>
                </div>
 
-            <div className="flex justify-center gap-5 w-full">
+            {/* <div className="flex justify-center gap-5 w-full">
                 <div className="flex items-center ">
                     <IoIosMan className="text-blue-500 text-2xl"/>
                     <span className="text-blue-950 text-xl font-bold">Hombres</span>
@@ -51,11 +51,11 @@ export default function SectionGridChart() {
                     <IoIosWoman className="text-red-400 text-2xl"/>
                     <span className="text-blue-950 text-xl font-bold">Mujeres</span>
                 </div>
-            </div>
+            </div> */}
         </div>
 
         {/* Tiempo de resolución */}
-        <div className="col-span-1 row-span-30 border border-gray-300 rounded-xl p-3">
+        <div className="col-span-1 row-span-1 border border-gray-300 rounded-xl p-3">
             <div className="flex items-center border-b border-gray-300 pb-3">
                 <h3 className="text-xl text-blue-900 font-bold">Tiempo de resolución</h3>
             </div>

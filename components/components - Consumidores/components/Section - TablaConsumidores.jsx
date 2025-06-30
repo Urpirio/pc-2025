@@ -24,8 +24,7 @@ export default function SectionTablaConsumidores() {
    [&_td]:text-gray-900
    [&_td]:border-t
    [&_td]:py-3
-   [&_td>div]:gap-2' value={DataTablaConsumidores} paginator paginatorLeft rows={10} rowsPerPageOptions={[1,5,10,20,50,100]} paginatorTemplate=" RowsPerPageDropdown  CurrentPageReport FirstPageLink PrevPageLink NextPageLink LastPageLink"
-  currentPageReportTemplate=" Pagina  {currentPage} de {totalPages}">
+   [&_td>div]:gap-2' value={DataTablaConsumidores} >
             <Column field="Cedula" header={'Cedula'}/>
             <Column field="Nombre" sortable header={'Nombre'}/>
             <Column field="Correo" sortable header={'Correo electronico'}/>

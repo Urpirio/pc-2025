@@ -30,8 +30,7 @@ export default function SectionTablaProveedores() {
 
    [&_td>div]:gap-2
 
-  ' value={DataTableProveedores} paginator paginatorLeft rows={10} rowsPerPageOptions={[1,5,10,20,50,100]} paginatorTemplate=" RowsPerPageDropdown  CurrentPageReport FirstPageLink PrevPageLink NextPageLink LastPageLink"
-    currentPageReportTemplate=" Pagina  {currentPage} de {totalPages}">
+  ' value={DataTableProveedores} >
     <Column field="RNC" header={'RNC'}/>
     <Column field="Proveedor" header={'Proveedor'} body={(Data)=><Proveedor contenido={Data.Proveedor}/>}/>
     <Column field="Sucursal" header={'Sucursal'}/>

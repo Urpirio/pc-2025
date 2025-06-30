@@ -6,11 +6,8 @@ import { DataCardCasosOficina } from '../../Data/Data - CardCasosOficina';
 
 export default function CardCasosOficina() {
   return (
-    <DataTable value={DataCardCasosOficina}  className="
+    <DataTable  value={DataCardCasosOficina}  className="
         w-full
-        border 
-        border-gray-300 
-        rounded-md
         text-sm
         [&_th]:text-gray-500
         [&_th]:p-3
@@ -19,7 +16,7 @@ export default function CardCasosOficina() {
         [&_td]:font-semibold
         [&_td]:text-gray-500
         [&_td]:border-t
-        [&_td]:py-5
+
        
         ">
         <Column  field="Oficina" header="Oficina"></Column>

@@ -12,13 +12,13 @@ export default function CardDemografia() {
             labels: ['18 - 24','25 - 34','35 - 45','55 - 75'],
             datasets: [
                 {
-                    label: '',
+                    label: 'Hombres',
                     borderRadius: 10,
                     backgroundColor: '#1D4ED8',
                     data:[52,45,100,20]
                 },
                 {
-                    label: '',
+                    label: 'Mujeres',
                     borderRadius: 10,
                     backgroundColor: '#FF6568',
                     data:[50,70,50,10]
@@ -34,5 +34,5 @@ export default function CardDemografia() {
 
 
 
-  return (<Chart className="h-full w-full" type="bar" data={chartData}/>)
+  return (<Chart className="h-full on w-full" type="bar" data={chartData}/>)
 }

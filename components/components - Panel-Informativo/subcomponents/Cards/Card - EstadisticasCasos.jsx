@@ -27,7 +27,7 @@ export default function CardEstadisticasCasos() {
     }, []);
 
   return (
-    <article className="flex h-full justify-between items-center gap-5 p-5">
+    <article className="flex h-full justify-between items-center gap-5">
         <div className="flex flex-col gap-5">
             <div className="flex flex-col border-b border-gray-300 pb-2 gap-2">
                 <span className="text-2xl font-bold text-blue-300">500</span>
@@ -46,7 +46,7 @@ export default function CardEstadisticasCasos() {
                 <span className="text-lg text-gray-500">Pagina web</span>
             </div>
         </div>
-        <div className="w-[50%] h-full">
+        <div className=" h-full">
             <Chart className='w-full h-full'  type="doughnut" data={chartData} options={chartOptions}  />
         </div>
     </article>
