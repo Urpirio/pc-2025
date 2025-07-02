@@ -16,7 +16,8 @@ export default function PopUpCambioEstado2() {
 
   return (
     <Dialog visible={DeployPopUpCambioEstado2} blockScroll position="center" closeIcon={true}
-        onHide={() => {if (!DeployPopUpCambioEstado2) return; setDeployPopUpCambioEstado2(false); }}
+        onHide={() =>setDeployPopUpCambioEstado2(false)}
+        onMaskClick={() =>setDeployPopUpCambioEstado2(false)}
         className="flex p-5  bg-white w-[50%] h-[50%] border border-gray-300 rounded-xl" >
     <section className="w-full h-full flex flex-col justify-between">
         <div className="flex justify-between items-center ">
