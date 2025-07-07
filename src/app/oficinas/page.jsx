@@ -1,5 +1,6 @@
 'use client';
 import Header from "../../../components/components - Globales/components/Header";
+import SectionTablaNavegacion from "../../../components/components - Globales/components/Section - TablaNavegacion";
 import SectionOficinas from "../../../components/components - Oficinas/components/Section - Oficinas";
 import SectionTablaOficinas from "../../../components/components - Oficinas/components/Section - TablaOficinas";
 import PopUp_POST_PUT_Oficinas from "../../../components/components - Oficinas/subcomponents/Pop-Up/Pop-Up - POST-PUT_Oficinas";
@@ -14,9 +15,10 @@ export default function page() {
   return (
     <body> 
         <Header/>
-        <main className="flex flex-col gap-2">
+        <main className="flex flex-col gap-2 pb-5">
             <SectionOficinas DeployPopUpOficinas={()=>{setcpagina(true)}}/>
             <SectionTablaOficinas DeployPopUpOficinas={()=>{setcpagina(false)}}/>
+            <SectionTablaNavegacion/>
             <PopUp_POST_PUT_Oficinas Cpagina={cpagina}/>
         </main>
     </body>
