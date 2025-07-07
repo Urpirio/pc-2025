@@ -6,6 +6,7 @@ import {Dropdown} from "primereact/dropdown";
 import { DataDropDown } from "../../../components - Globales/Data/Data - DropDown";
 import { SetDeployPopUpCambioEstado } from "./Pop-Up-CambioEstado";
 import { useState } from "react";
+import { StyleGlobal } from "../../../../style/Styles";
 
 export let SetDeployPopUpCambioEstado2;
 export default function PopUpCambioEstado2() {
@@ -15,9 +16,12 @@ export default function PopUpCambioEstado2() {
     const [selectedTipodeCierre,setSelectedTipodeCierre] = useState('');
 
   return (
-    <Dialog visible={DeployPopUpCambioEstado2} blockScroll position="center" closeIcon={true}
+    <Dialog 
+        visible={DeployPopUpCambioEstado2} 
+        blockScroll position="center" closeIcon={true}
         onHide={() =>setDeployPopUpCambioEstado2(false)}
-        onMaskClick={() =>setDeployPopUpCambioEstado2(false)}
+        contentStyle={StyleGlobal.StyleContentDialogs}
+        maskClassName={StyleGlobal.StyleMaskDialogs}
         className="flex p-5  bg-white w-[50%] h-[50%] border border-gray-300 rounded-xl" >
     <section className="w-full h-full flex flex-col justify-between">
         <div className="flex justify-between items-center ">
@@ -36,7 +40,8 @@ export default function PopUpCambioEstado2() {
         <div className="flex  flex-col gap-1">
             <h2 className="text-gray-500">Seleccion de caso:</h2>
             <Dropdown
-            className="border border-gray-300 rounded-md p-2"
+            className={StyleGlobal.StyleBodyDropDown}
+            panelClassName={StyleGlobal.StyleDropDown}
             options={DataDropDown}
             placeholder="Seleccion de estado"
             optionLabel="name"
@@ -47,7 +52,8 @@ export default function PopUpCambioEstado2() {
         <div className="flex  flex-col gap-1">
             <h2 className="text-gray-500">Tipo de Cierre:</h2>
             <Dropdown
-            className="border border-gray-300 rounded-md p-2"
+            className={StyleGlobal.StyleBodyDropDown}
+            panelClassName={StyleGlobal.StyleDropDown}
             options={DataDropDown}
             placeholder="Seleccion de estado"
             optionLabel="name"
