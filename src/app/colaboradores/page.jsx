@@ -17,6 +17,7 @@ export default function page() {
         <main className="flex flex-col gap-2 pb-10">
             <SectionColaboradores DeployPopUpColaboradores={()=>{setcpagina(true)}}/>
             <SectionTablasColaboradores DeployPopUpColaboradores={()=>{setcpagina(false)}}/>
+            <SectionTablaNavegacion/>
             <PopUp_POST_PUT_Colaboradores Cpagina={cpagina}/>
         </main>
     </body>
