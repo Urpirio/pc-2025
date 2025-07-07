@@ -2,6 +2,7 @@
 import { Dropdown } from "primereact/dropdown";
 import { useState } from "react";
 import { DataDropDown } from "../../components - Globales/Data/Data - DropDown";
+import { StyleGlobal } from "../../../style/Styles";
 
 export default function SectionGuardarCaso() {
 
@@ -15,24 +16,26 @@ export default function SectionGuardarCaso() {
             <label htmlFor="">Via de Entrada</label>
             <Dropdown
                 value={SelectViaEntrada}
+                panelClassName={StyleGlobal.StyleDropDown}
                 onChange={(e)=>setSelectViaEntrada(e.target.value)}
                 placeholder="Seleccionar via"
                 options={DataDropDown}
                 optionLabel="name"
                 optionValue="name"
-                className="border border-gray-300 rounded-md p-2 outline-0 text-gray-500 w-full shadow-2xs"
+                className={StyleGlobal.StyleBodyDropDown}
                  />
         </div>
         <div className="flex flex-col w-1/7 min-w-40">
             <label htmlFor="">Motivo</label>
             <Dropdown
                 value={SelectMotivo}
+                panelClassName={StyleGlobal.StyleDropDown}
                 onChange={(e)=>setSelectViaEntrada(e.target.value)}
                 placeholder="Seleccionar motivo"
                 options={DataDropDown}
                 optionLabel="name"
                 optionValue="name"
-                className="border border-gray-300 rounded-md p-2 outline-0 text-gray-500 w-full shadow-2xs"
+                className={StyleGlobal.StyleBodyDropDown}
                  />
         </div>
         <div className="flex items-center w-1/7 min-w-40">
