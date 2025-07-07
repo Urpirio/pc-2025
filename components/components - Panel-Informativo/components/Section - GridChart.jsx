@@ -28,7 +28,7 @@ export default function SectionGridChart() {
             <CardCasosOficina />
            </div>
            <div className="flex justify-center">
-            <button className="text-blue-500 font-semibold hover:opacity-80 transition-colors duration-300 cursor-pointer">Mostrar todos</button>
+            <button className="text-blue-500 font-semibold hover:border-b hover:border-primary hover:opacity-80 transition-all duration-300 cursor-pointer">Mostrar todos</button>
            </div>
         </div>
 
