@@ -3,12 +3,24 @@ import { Dropdown } from "primereact/dropdown";
 import { useState } from "react";
 import { DataDropDown } from "../../components - Globales/Data/Data - DropDown";
 import { FiPlus } from "react-icons/fi";
+import { InputText } from "primereact/inputtext";
+import { StyleGlobal } from "../../../style/Styles";
 
 
 export default function SectionConsumidorF() {
 
     const [SelectProvincia, setSelectProvincia] = useState(null);
     const [SelectGenero, setSelectGenero] = useState(null);
+
+    const [InputValues,setInputValues] = useState({
+        Cedula:String(),
+        Telefono: String(),
+        Nombre: String(),
+        Telefono_secundario:String(),
+        Apellido: String(),
+        Correo: String(),
+        Edad: Number(),
+    });
 
 
 
@@ -26,33 +38,39 @@ export default function SectionConsumidorF() {
                     <div className="flex flex-col gap-2">
                         <label htmlFor="" className="font-semibold">Cedula:</label>
                         <div className="flex items-center gap-2">
-                            <input type="text" className="border border-gray-300 rounded-md p-2 outline-0 text-gray-500 w-full shadow-2xs" />
+                            <InputText value={InputValues.Cedula} onChange={(e)=>setInputValues({...InputValues,Cedula:e.target.value})} 
+                                className={StyleGlobal.StyleInput} />
                             <button className="bg-blue-900 text-white px-4 py-2 rounded-md hover:bg-blue-900/80 transition-all duration-300 cursor-pointer">Buscar</button>
                         </div>
                     </div>
                     <div className="flex flex-col gap-2">
                         <label htmlFor="" className="font-semibold">Telefono:</label>
-                        <input type="text" className="border border-gray-300 rounded-md p-2 outline-0 text-gray-500 w-full shadow-2xs" />
+                        <InputText value={InputValues.Telefono} onChange={(e)=>setInputValues({...InputValues,Telefono:e.target.value})} 
+                            className={StyleGlobal.StyleInput} />
                     </div>
                 </article>
                 <article className="flex flex-col gap-2 w-1/4">
                     <div className="flex flex-col gap-2">
                         <label htmlFor="" className="font-semibold">Nombre:</label>
-                        <input type="text" className="border border-gray-300 rounded-md p-2 outline-0 text-gray-500 w-full shadow-2xs" />
+                        <InputText value={InputValues.Nombre} onChange={(e)=>setInputValues({...InputValues,Nombre:e.target.value})} 
+                            className={StyleGlobal.StyleInput} />
                     </div>
                     <div className="flex flex-col gap-2">
                         <label htmlFor="" className="font-semibold">Telefono secundario:</label>
-                        <input type="text" className="border border-gray-300 rounded-md p-2 outline-0 text-gray-500 w-full shadow-2xs" />
+                        <InputText value={InputValues.Telefono_secundario} onChange={(e)=>setInputValues({...InputValues,Telefono_secundario:e.target.value})} 
+                            className={StyleGlobal.StyleInput} />
                     </div>
                 </article>
                 <article className="flex flex-col gap-2 w-1/4">
                     <div className="flex flex-col gap-2">
                         <label htmlFor="" className="font-semibold">Apellido:</label>
-                        <input type="text" className="border border-gray-300 rounded-md p-2 outline-0 text-gray-500 w-full shadow-2xs" />
+                        <InputText value={InputValues.Apellido} onChange={(e)=>setInputValues({...InputValues,Apellido:e.target.value})} 
+                            className={StyleGlobal.StyleInput} />
                     </div>
                     <div className="flex flex-col gap-2">
                         <label htmlFor="" className="font-semibold">Correo:</label>
-                        <input type="text" className="border border-gray-300 rounded-md p-2 outline-0 text-gray-500 w-full shadow-2xs" />
+                        <InputText value={InputValues.Correo} onChange={(e)=>setInputValues({...InputValues,Correo:e.target.value})} 
+                            className={StyleGlobal.StyleInput} />
                     </div>
                 </article>
                 <article className="flex flex-col gap-2 w-1/4">
@@ -61,11 +79,12 @@ export default function SectionConsumidorF() {
                         <Dropdown 
                         placeholder="Seleccionar provincia"
                         value={SelectProvincia}
+                        panelClassName={StyleGlobal.StyleDropDown}
                         onChange={(e)=>{setSelectProvincia(e.target.value)}}
                         options={DataDropDown}
                         optionLabel="name"
                         optionValue="name"
-                        className="border border-gray-300 rounded-md p-2 outline-0 text-gray-500  shadow-2xs"
+                        className={StyleGlobal.StyleBodyDropDown}
                         />
                     </div>
                     <div className="flex gap-2">
@@ -74,16 +93,18 @@ export default function SectionConsumidorF() {
                             <Dropdown
                             placeholder="Seleccionar genero"
                             value={SelectGenero}
+                            panelClassName={StyleGlobal.StyleDropDown}
                             onChange={(e)=>{setSelectGenero(e.target.value)}}
                             options={DataDropDown}
                             optionLabel="name"
                             optionValue="name"
-                            className="border border-gray-300 rounded-md p-2 outline-0 text-gray-500 w-full shadow-2xs"
+                            className={StyleGlobal.StyleBodyDropDown}
                             />
                         </div>
                         <div className="flex flex-col gap-2 w-1/2">
                             <label htmlFor="" className="font-semibold">Edad:</label>
-                            <input type="text" className="border border-gray-300 rounded-md p-2 outline-0 text-gray-500 w-full shadow-2xs" />
+                            <InputText value={InputValues.Edad} onChange={(e)=>setInputValues({...InputValues,Edad:e.target.value})} 
+                                className={StyleGlobal.StyleInput} />
                         </div>
                     </div>
                 </article>
