@@ -12,7 +12,7 @@ export default function CardSimples({Numero,Nombre,bgTopColor}) {
                 <span>{Nombre}</span>
             </div>
             <div className="flex items-end h-full justify-center">
-                <button className="border border-gray-300 rounded-full p-2">
+                <button className="border border-gray-300 cursor-pointer hover:bg-gray-50 hover:scale-105 transition-all duration-300 rounded-full p-2">
                     <IoArrowForward  className="text-gray-500"/>
                 </button>
             </div>
