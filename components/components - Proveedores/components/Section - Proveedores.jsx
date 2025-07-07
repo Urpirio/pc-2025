@@ -5,10 +5,11 @@ import { InputText } from "primereact/inputtext";
 import { useState } from "react";
 import { SetDeployPopUpFiltroProveedores } from "../Subcomponents/Pop-Up/Pop-Up - Filtro";
 import { SetDeployPopUp_POST_PUT_Provedor } from "../Subcomponents/Pop-Up/Pop-Up - POST-PUT-Proveedorr";
+import { StyleGlobal } from "../../../style/Styles";
 
 export default function SectionProveedores() {
 
-    const [Textvalue,setTextvalue] = useState();
+    const [Textvalue,setTextvalue] = useState(String());
 
     return (
         <section className="flex flex-col gap-4 px-5 py-3">
@@ -17,7 +18,7 @@ export default function SectionProveedores() {
             </div>
             <div className="flex justify-between">
                 <div>
-                <InputText placeholder="Buscar Proveedor.." className="border border-gray-300 p-2 rounded-md outline-0 text-gray-500 w-70 shadow-2xs" 
+                <InputText placeholder="Buscar Proveedor.." className={StyleGlobal.StyleBuscadores}
                     value={Textvalue} onChange={(e)=>{setTextvalue(e.target.value)}} />
                 </div>
                 <div className="flex items-center gap-2">
