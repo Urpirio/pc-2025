@@ -13,24 +13,11 @@ export default function SectionTablaProveedores() {
 
   return (
    <section className="px-5">
-    <DataTable className='
-   w-full
-   rounded-md
-   text-sm
-   [&_th]:text-gray-500
-   [&_th>div]:flex
-   [&_th>div]:items-center
-   [&_th>div]:gap-2
-   [&_th]:p-3
-   [&_td]:p-3
-   [&_td]:border-gray-300
-   [&_td]:text-gray-900
-   [&_td]:border-t
-   [&_td]:py-3
-
-   [&_td>div]:gap-2
-
-  ' value={DataTableProveedores} >
+    <DataTable             
+      className={"border w-full border-gray-300  overflow-hidden rounded-xl"}
+      tableClassName={" [&_thead>tr>th>div]:flex [&_thead>tr>th>div]:gap-5 [&_thead>tr>th]:text-gray-500 [&_thead>tr>th]:p-2 [&_thead]:bg-white" }
+      rowClassName={' p-5 [&_td]:p-3 [&_td]:border-t [&_td]:border-gray-300'}  
+      value={DataTableProveedores} >
     <Column field="RNC" header={'RNC'}/>
     <Column field="Proveedor" header={'Proveedor'} body={(Data)=><Proveedor contenido={Data.Proveedor}/>}/>
     <Column field="Sucursal" header={'Sucursal'}/>
