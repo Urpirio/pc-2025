@@ -2,6 +2,7 @@
 import { Dialog } from "primereact/dialog";
 import { FaCheck } from "react-icons/fa6";
 import { useState } from "react";
+import { StyleGlobal } from "../../../../style/Styles";
 
 export default function PopupMiniAsignarCasos() {
 
@@ -9,7 +10,12 @@ export default function PopupMiniAsignarCasos() {
 
 
   return (
-    <Dialog visible={DeployPopUpMiniAsignar} closeIcon={true} blockScroll closeOnEscape onHide={(e)=>{if(!DeployPopUpMiniAsignar)  return; setDeployPopUpMiniAsignar(false)}}
+    <Dialog 
+        contentStyle={StyleGlobal.StyleContentDialogs}
+        maskClassName={StyleGlobal.StyleMaskDialogs}
+        visible={DeployPopUpMiniAsignar} 
+        closeIcon={true} blockScroll closeOnEscape
+        onHide={(e)=>{if(!DeployPopUpMiniAsignar)  return; setDeployPopUpMiniAsignar(false)}}
         className="bg-white w-[20%] flex items-center border border-gray-300 rounded-xl shadow-2xs p-5" 
     >
         <section className="flex flex-col gap-3 items-center justify-center text-center ">
