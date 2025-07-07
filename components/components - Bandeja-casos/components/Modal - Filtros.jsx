@@ -2,8 +2,10 @@
 import { Dialog } from "primereact/dialog";
 import { IoMdClose } from "react-icons/io";
 import { Dropdown } from "primereact/dropdown";
+import { InputText} from "primereact/inputtext";
 import { useEffect, useState } from "react";
 import { DataDropDown } from "../../components - Globales/Data/Data - DropDown";
+import { StyleGlobal } from "../../../style/Styles";
 
 export let SetDialogOpen;
 export default function ModalFiltros() {
@@ -11,24 +13,60 @@ export default function ModalFiltros() {
     const [DialogOpen, setDialogOpen] = useState(false);
     SetDialogOpen = setDialogOpen;
 
-    const [SelectProveedor,setSelectProveedor] = useState();
-    const [SelectOficina,setSelectOficina] = useState();
-    const [SelectTipo ,setSelectTipo] = useState()
-    const [SelectVia ,setSelectVia] = useState()
-    const [SelectOficial ,setSelectOficial] = useState()
-    const [SelectDepartamento ,setSelectDepartamento] = useState()
-    const [SelectEstado ,setSelectEstado] = useState();
-    const [SelectTipo_de_cierre,setSelectTipo_de_cierre] = useState();
-    const [SelectResultado,setSelectResultado] = useState();
-    const [SelectFecha,setSelectFecha] = useState();
-    const [Producto_Servicio,setProducto_Servicio] = useState();
-    const [SelectSector_comercial,setSelectSector_comercial] = useState();
-    const [SelectMotivo,setSelectMotivo] = useState();
+    const [SelectsValues,setSelectsValues] = useState({
+        SelectProveedor: String(),
+        SelectOficina: String(),
+        SelectTipo: String(),
+        SelectVia: String(),
+        SelectOficial: String(),
+        SelectDepartamento: String(),
+        SelectEstado: String(),
+        SelectTipo_de_cierre: String(),
+        SelectResultado: String(),
+        SelectFecha: String(),
+        Producto_Servicio: String(),
+        SelectSector_comercial: String(),
+        SelectMotivo: String(),
+    });
 
+
+    const [InputValues,setInputValues] = useState({
+        Cedula:String(),
+        Nombre:String(),
+        Numero_caso: String(),
+        Apellido:String(),
+        RNC:String(),
+    });
+
+    const LimpiarFiltros = () =>{
+        setSelectsValues({
+        SelectProveedor: String(),
+        SelectOficina: String(),
+        SelectTipo: String(),
+        SelectVia: String(),
+        SelectOficial: String(),
+        SelectDepartamento: String(),
+        SelectEstado: String(),
+        SelectTipo_de_cierre: String(),
+        SelectResultado: String(),
+        SelectFecha: String(),
+        Producto_Servicio: String(),
+        SelectSector_comercial: String(),
+        SelectMotivo: String(),
+        });
+        setInputValues({
+        Cedula:String(),
+        Nombre:String(),
+        Numero_caso: String(),
+        Apellido:String(),
+        RNC:String(),
+        });
+    };
 
   return (
    <section className={`w-full h-screen  backdrop-blur-lg z-40 ${DialogOpen ? 'flex' : 'hidden'} justify-end items-center  absolute`} >
-     <Dialog visible={DialogOpen}  closeIcon={true} closeOnEscape onHide={()=>{if (!DialogOpen) return; setDialogOpen(false) }} position="right" className=" h-full border bg-white border-gray-300 shadow-2xs   rounded-2xl p-5">
+     <Dialog visible={DialogOpen} contentStyle={{scrollbarWidth:'none'}} closeIcon={true} closeOnEscape onHide={()=>{setDialogOpen(false);LimpiarFiltros() }} position="right" className=" h-full border bg-white border-gray-300 shadow-2xs   rounded-2xl p-5">
+        
         <section className=" flex justify-between items-center">
                 <h2 className="text-2xl text-blue-900 font-bold">Filtros</h2>
                 <button onClick={()=>{
@@ -42,19 +80,23 @@ export default function ModalFiltros() {
         <div className="flex flex-col gap-2">
             <div className="flex flex-col">
                 <label className="font-semibold " >Cedula:</label>
-                <input className="border border-gray-300 rounded-md p-2 outline-0" type="text" />
+                <InputText value={InputValues.Cedula} onChange={(e)=>setInputValues({...InputValues,Cedula:e.target.value})}
+                    className={StyleGlobal.StyleInput} type="text" />
             </div>
             <div className="flex flex-col">
                 <label className="font-semibold">Nombre:</label>
-                <input className="border border-gray-300 rounded-md p-2 outline-0" type="text" />
+                <InputText value={InputValues.Nombre} onChange={(e)=>setInputValues({...InputValues,Nombre:e.target.value})}  
+                    className={StyleGlobal.StyleInput} type="text" />
             </div>
             <div className="flex flex-col card">
                 <label className="font-semibold" >Proveedor:</label>
-                <Dropdown className="border border-gray-300 rounded-md p-2 " 
+                <Dropdown className="border border-gray-300 rounded-md p-2 text-gray-500" 
                     placeholder="Todos los Proveedores"
+                    panelClassName= {StyleGlobal.StyleDropDown}
+                    appendTo={'self'}
                     checked={false}
-                    value={SelectProveedor} 
-                    onChange={(e)=>{setSelectProveedor(e.target.value)}} 
+                    value={SelectsValues.SelectProveedor} 
+                    onChange={(e)=>setSelectsValues({...SelectsValues,SelectProveedor:e.target.value})} 
                     options={DataDropDown} optionLabel="name"
                     clearIcon
                     
@@ -62,33 +104,39 @@ export default function ModalFiltros() {
             </div>
             <div className="flex flex-col">
                 <label className="font-semibold">Oficina:</label>
-                <Dropdown className="border border-gray-300 rounded-md p-2 placeholder:text-gray-300" 
+                <Dropdown className="border border-gray-300 rounded-md p-2 text-gray-500" 
                     placeholder="Todos las Oficina"
+                    panelClassName={StyleGlobal.StyleDropDown}
+                    appendTo={'self'}
                     checked={false}
-                    value={SelectOficina} 
-                    onChange={(e)=>{setSelectOficina(e.target.value)}} 
+                    value={SelectsValues.SelectOficina} 
+                    onChange={(e)=>setSelectsValues({...SelectsValues,SelectOficina:e.target.value})} 
                     options={DataDropDown} optionLabel="name"
                     
                 />
             </div>
             <div className="flex flex-col">
                 <label className="font-semibold">Tipo:</label>
-                <Dropdown className="border border-gray-300 rounded-md p-2 placeholder:text-gray-300" 
+                <Dropdown className="border border-gray-300 rounded-md p-2 text-gray-500" 
                     placeholder="Todos las Oficina"
+                    panelClassName={StyleGlobal.StyleDropDown}
+                    appendTo={'self'}
                     checked={false}
-                    value={SelectTipo} 
-                    onChange={(e)=>{setSelectTipo(e.target.value)}} 
+                    value={SelectsValues.SelectTipo} 
+                    onChange={(e)=>setSelectsValues({...SelectsValues,SelectTipo:e.target.value})} 
                     options={DataDropDown} optionLabel="name"
                     
                 />
             </div>
             <div className="flex flex-col">
                 <label className="font-semibold">Via:</label>
-                <Dropdown className="border border-gray-300 rounded-md p-2 placeholder:text-gray-300" 
+                <Dropdown className="border border-gray-300 rounded-md p-2 text-gray-500" 
                     placeholder="Todos las Oficina"
+                    panelClassName={StyleGlobal.StyleDropDown}
+                    appendTo={'self'}
                     checked={false}
-                    value={SelectVia} 
-                    onChange={(e)=>{setSelectVia(e.target.value)}} 
+                    value={SelectsValues.SelectVia} 
+                    onChange={(e)=>setSelectsValues({...SelectsValues,SelectVia:e.target.value})} 
                     options={DataDropDown} optionLabel="name"
                     
                 />
@@ -97,45 +145,54 @@ export default function ModalFiltros() {
         <div className="flex flex-col gap-2">
             <div className="flex flex-col">
                 <label className="font-semibold">Numero de caso:</label>
-                <input className="border border-gray-300 rounded-md p-2 outline-0" type="text" />
+                <InputText value={InputValues.Numero_caso} onChange={(e)=>setInputValues({...InputValues,Numero_caso:e.target.value})}  
+                    className={StyleGlobal.StyleInput} type="text" />
             </div >
             <div className="flex flex-col">
                 <label className="font-semibold">Apellido:</label>
-                <input className="border border-gray-300 rounded-md p-2 outline-0" type="text" />
+                <InputText value={InputValues.Apellido} onChange={(e)=>setInputValues({...InputValues,Apellido:e.target.value})}  
+                    className={StyleGlobal.StyleInput} type="text" />
             </div>
             <div className="flex flex-col">
                 <label className="font-semibold">RNC:</label>
-                <input className="border border-gray-300 rounded-md p-2 outline-0" type="text" />
+                <InputText value={InputValues.RNC} onChange={(e)=>setInputValues({...InputValues,RNC:e.target.value})} 
+                    className={StyleGlobal.StyleInput} type="text" />
             </div>
             <div className="flex flex-col">
                 <label className="font-semibold">Oficial:</label>
-                <Dropdown className="border border-gray-300 rounded-md p-2 outline-0 placeholder:text-gray-300" 
+                <Dropdown className="border border-gray-300 rounded-md p-2 outline-0 text-gray-500" 
                     placeholder="Todos las Oficina"
+                    panelClassName={StyleGlobal.StyleDropDown}
+                    appendTo={'self'}
                     checked={false}
-                    value={SelectOficial} 
-                    onChange={(e)=>{setSelectOficial(e.target.value)}} 
+                    value={SelectsValues.SelectOficial} 
+                    onChange={(e)=>setSelectsValues({...SelectsValues,SelectOficial:e.target.value})} 
                     options={DataDropDown} optionLabel="name"
                     
                 />
             </div>
             <div className="flex flex-col">
                 <label className="font-semibold">Estado:</label>
-                <Dropdown className="border border-gray-300 rounded-md p-2 placeholder:text-gray-300" 
+                <Dropdown className="border border-gray-300 rounded-md p-2 text-gray-500" 
                     placeholder="Todos las Oficina"
+                    panelClassName={StyleGlobal.StyleDropDown}
+                    appendTo={'self'}
                     checked={false}
-                    value={SelectEstado} 
-                    onChange={(e)=>{setSelectEstado(e.target.value)}} 
+                    value={SelectsValues.SelectEstado} 
+                    onChange={(e)=>setSelectsValues({...SelectsValues,SelectEstado:e.target.value})} 
                     options={DataDropDown} optionLabel="name"
                     
                 />
             </div>
             <div className="flex flex-col">
                 <label className="font-semibold">Departamento:</label>
-                <Dropdown className="border border-gray-300 rounded-md p-2 placeholder:text-gray-300" 
+                <Dropdown className="border border-gray-300 rounded-md p-2 text-gray-500" 
                     placeholder="Todos las Oficina"
+                    panelClassName={StyleGlobal.StyleDropDown}
+                    appendTo={'self'}
                     checked={false}
-                    value={SelectDepartamento} 
-                    onChange={(e)=>{setSelectDepartamento(e.target.value)}} 
+                    value={SelectsValues.SelectDepartamento} 
+                    onChange={(e)=>setSelectsValues({...SelectsValues,SelectDepartamento:e.target.value})} 
                     options={DataDropDown} optionLabel="name"
                     
                 />
@@ -145,72 +202,84 @@ export default function ModalFiltros() {
     <section className="flex flex-col gap-2" >
         <div className="flex flex-col gap-2">
             <label className="font-semibold">Tipo de cierre:</label>
-            <Dropdown className="border w-full border-gray-300 rounded-md p-2 placeholder:text-gray-300" 
+            <Dropdown className="border w-full border-gray-300 rounded-md p-2 text-gray-500" 
                     placeholder="Todos las Oficina"
+                    panelClassName={StyleGlobal.StyleDropDown}
+                    appendTo={'self'}
                     checked={false}
-                    value={SelectTipo_de_cierre} 
-                    onChange={(e)=>{setSelectTipo_de_cierre(e.target.value)}} 
+                    value={SelectsValues.SelectTipo_de_cierre} 
+                    onChange={(e)=>setSelectsValues({...SelectsValues,SelectTipo_de_cierre:e.target.value})} 
                     options={DataDropDown} optionLabel="name"
                     
                 />
         </div>
         <div className="flex flex-col gap-2">
             <label className="font-semibold">Resultado:</label>
-            <Dropdown className="border w-full border-gray-300 rounded-md p-2 placeholder:text-gray-300" 
+            <Dropdown className="border w-full border-gray-300 rounded-md p-2 text-gray-500" 
                     placeholder="Todos las Oficina"
+                    panelClassName={StyleGlobal.StyleDropDown}
+                    appendTo={'self'}
                     checked={false}
-                    value={SelectResultado} 
-                    onChange={(e)=>{setSelectResultado(e.target.value)}} 
+                    value={SelectsValues.SelectResultado} 
+                    onChange={(e)=>setSelectsValues({...SelectsValues,SelectResultado:e.target.value})} 
                     options={DataDropDown} optionLabel="name"
                     
                 />
         </div>
         <div className="flex flex-col gap-2">
             <label className="font-semibold">Fecha:</label>
-            <Dropdown className="border w-full border-gray-300 rounded-md p-2 placeholder:text-gray-300" 
+            <Dropdown className="border w-full border-gray-300 rounded-md p-2 text-gray-500" 
                     placeholder="Todos las Oficina"
+                    panelClassName={StyleGlobal.StyleDropDown}
+                    appendTo={'self'}
                     checked={false}
-                    value={SelectFecha} 
-                    onChange={(e)=>{setSelectFecha(e.target.value)}} 
+                    value={SelectsValues.SelectFecha} 
+                    onChange={(e)=>setSelectsValues({...SelectsValues,SelectFecha:e.target.value})} 
                     options={DataDropDown} optionLabel="name"
                     
                 />
         </div>
         <div className="flex flex-col gap-2">
             <label className="font-semibold">Producto / Servicio:</label>
-            <Dropdown className="border w-full border-gray-300 rounded-md p-2 placeholder:text-gray-300" 
+            <Dropdown className="border w-full border-gray-300 rounded-md p-2 text-gray-500" 
                     placeholder="Todos las Oficina"
+                    panelClassName={StyleGlobal.StyleDropDown}
+                    appendTo={'self'}
                     checked={false}
-                    value={Producto_Servicio} 
-                    onChange={(e)=>{setProducto_Servicio(e.target.value)}} 
+                    value={SelectsValues.Producto_Servicio} 
+                    onChange={(e)=>setSelectsValues({...SelectsValues,Producto_Servicio:e.target.value})} 
                     options={DataDropDown} optionLabel="name"
                     
                 />
         </div>
         <div className="flex flex-col gap-2">
             <label className="font-semibold">Sector comercial:</label>
-            <Dropdown className="border w-full border-gray-300 rounded-md p-2 placeholder:text-gray-300" 
+            <Dropdown className="border w-full border-gray-300 rounded-md p-2 text-gray-500" 
                     placeholder="Todos las Oficina"
+                    panelClassName={StyleGlobal.StyleDropDown}
+                    appendTo={'self'}
                     checked={false}
-                    value={SelectSector_comercial} 
-                    onChange={(e)=>{setSelectSector_comercial(e.target.value)}} 
+                    value={SelectsValues.SelectSector_comercial} 
+                    onChange={(e)=>setSelectsValues({...SelectsValues,SelectSector_comercial:e.target.value})} 
                     options={DataDropDown} optionLabel="name"
                     
                 />
         </div>
         <div className="flex flex-col gap-2">
             <label className="font-semibold">Motivo:</label>
-            <Dropdown className="border w-full border-gray-300 rounded-md p-2 placeholder:text-gray-300" 
+            <Dropdown className="border w-full border-gray-300 rounded-md p-2 text-gray-500" 
                     placeholder="Todos las Oficina"
+                    panelClassName={StyleGlobal.StyleDropDown}
+                    appendTo={'self'}
                     checked={false}
-                    value={SelectMotivo} 
-                    onChange={(e)=>{setSelectMotivo(e.target.value)}} 
+                    value={SelectsValues.SelectMotivo} 
+                    onChange={(e)=>setSelectsValues({...SelectsValues,SelectMotivo:e.target.value})} 
                     options={DataDropDown} optionLabel="name"
                     
                 />
         </div>
         <div className="w-full flex flex-col py-5 gap-2">
-            <button className="p-2 border-2 border-blue-900 text-blue-900 rounded-md cursor-pointer hover:opacity-80 transition-all duration-300">Limpiar filtros</button>
+            <button onClick={LimpiarFiltros} className="p-2 border-2 border-blue-900 text-blue-900 rounded-md cursor-pointer hover:opacity-80 transition-all duration-300">Limpiar filtros</button>
             <button className="p-2 border bg-blue-900 text-white rounded-md cursor-pointer hover:opacity-80 transition-all duration-300">Aplicar filtros</button>
         </div>
     </section>
