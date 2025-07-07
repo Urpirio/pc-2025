@@ -7,6 +7,7 @@ import { IoMdClose } from "react-icons/io";
 import { SetDeployPopUpCambioEstado2 } from "./Pop-Up-CambioEstado2";
 import { SetDeployProcesarCaso } from "./Pop-Up-ProcesarCasos";
 import { useState } from "react";
+import { StyleGlobal } from "../../../../style/Styles";
 
 export let SetDeployPopUpCambioEstado;
 export default function PopUpCambioEstado() {
@@ -16,8 +17,12 @@ export default function PopUpCambioEstado() {
     const [selectedOption,setSelectedOption] = useState('');
 
   return (
-   <Dialog visible={DeployPopUpCambioEstado} position="center" closeIcon={true} closeOnEscape blockScroll 
-    onHide={() => {if (!DeployPopUpCambioEstado) return; setDeployPopUpCambioEstado(false); }} 
+   <Dialog 
+    visible={DeployPopUpCambioEstado} 
+    contentStyle={StyleGlobal.StyleContentDialogs}
+    maskClassName={StyleGlobal.StyleMaskDialogs}
+    position="center" closeIcon={true} closeOnEscape blockScroll 
+    onHide={() =>setDeployPopUpCambioEstado(false)} 
     className="flex p-5  bg-white w-[50%] h-[35%] border border-gray-300 rounded-xl">
         <section className="w-full h-full flex flex-col justify-between">
         <div className="flex justify-between items-center ">
@@ -34,7 +39,8 @@ export default function PopUpCambioEstado() {
         <div className="flex  flex-col gap-2">
             <h2 className="text-gray-500">Seleccion de caso:</h2>
             <Dropdown
-            className="border border-gray-300 rounded-md p-2"
+            className={StyleGlobal.StyleBodyDropDown}
+            panelClassName={StyleGlobal.StyleDropDown}
             options={DataDropDown}
             placeholder="Seleccion de estado"
             optionLabel="name"
