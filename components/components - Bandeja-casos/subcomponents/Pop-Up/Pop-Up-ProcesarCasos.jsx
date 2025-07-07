@@ -6,6 +6,7 @@ import {Dropdown} from "primereact/dropdown";
 import { DataDropDown } from "../../../components - Globales/Data/Data - DropDown";
 import { useState } from "react";
 import { SetDeployPopUpCambioEstado } from "./Pop-Up-CambioEstado";
+import { StyleGlobal } from "../../../../style/Styles";
 
 
 
@@ -18,7 +19,14 @@ export default function PopUpProcesarCasos() {
 
   return (
 //    <section className="w-full h-screen bg-amber-300 z-40 absolute">
-    <Dialog visible={DeployProcesarCaso} closeOnEscape onHide={() => {if (!DeployProcesarCaso) return; setDeployProcesarCaso(false); }} blockScroll closeIcon={true} className="w-[50%] h-[45%] bg-white shadow-2xs border border-gray-200 rounded-xl flex flex-col justify-center">
+    <Dialog 
+        visible={DeployProcesarCaso} 
+        contentStyle={StyleGlobal.StyleContentDialogs}
+        maskClassName={StyleGlobal.StyleMaskDialogs}
+        closeOnEscape onHide={() =>setDeployProcesarCaso(false)} 
+        blockScroll closeIcon={true} 
+        className="w-[50%] h-[45%] bg-white shadow-2xs border border-gray-200 rounded-xl flex flex-col justify-center">
+            
         <section className="flex flex-col p-5 gap-5 justify-between h-full">
         <section className="flex justify-between items-center ">
                 <h1 className="text-2xl font-bold text-blue-900">Procesar caso</h1>
@@ -40,8 +48,12 @@ export default function PopUpProcesarCasos() {
             <div>
                 <h2 className="text-gray-500">Accion realizar</h2>
             </div>
-            <Dropdown className="border w-full border-gray-300 rounded-md p-2 placeholder:text-gray-300" 
-             options={DataDropDown} placeholder="Seleccionar la accion" optionLabel="name" value={selectedOption} onChange={(e) => setSelectedOption(e.target.value)}/>
+            <Dropdown 
+             className={StyleGlobal.StyleBodyDropDown} 
+             panelClassName={StyleGlobal.StyleDropDown}
+             options={DataDropDown} placeholder="Seleccionar la accion" 
+             optionLabel="name" value={selectedOption} 
+             onChange={(e) => setSelectedOption(e.target.value)}/>
 
         </section>
         <section className="flex justify-end w-full">
