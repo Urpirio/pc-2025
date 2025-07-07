@@ -12,14 +12,13 @@ export default function SectionDetalles({Data}) {
   return (
     <section className="flex justify-between px-5 py-10" >
         <div className="flex items-center gap-2">
-            <Link className="text-xl p-1 bg-blue-50 rounded-full flex justify-center items-center" href={''}>
+            <Link className="text-xl p-1 bg-blue-50 rounded-full flex justify-center items-center" href={'/consumidores'}>
                 <IoArrowBackOutline className="text-blue-900"/>
             </Link>
             <div className="flex items-center gap-3" >
                 <div className="h-15 w-15 flex justify-center items-center bg-blue-50 rounded-full">
                 <FiUser className="text-3xl text-blue-900" />
                 </div>
-                {/* <Image src={''} alt=""/> */}
                 <div>
                     <h1 className="text-2xl font-bold text-[#707070]">Juan Martinex</h1>
                     <div className="flex gap-2">
