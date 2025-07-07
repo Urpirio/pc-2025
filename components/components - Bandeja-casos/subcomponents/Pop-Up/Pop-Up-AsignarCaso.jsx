@@ -7,6 +7,7 @@ import { DataDropDown } from "../../../components - Globales/Data/Data - DropDow
 import { useState } from "react";
 import { AutoComplete } from "primereact/autocomplete";
 import { InputTextarea } from "primereact/inputtextarea";
+import { StyleGlobal } from "../../../../style/Styles";
 
 export default function PopUpAsignarCaso() {
 
@@ -25,9 +26,13 @@ export default function PopUpAsignarCaso() {
     }
 
   return (
-    <Dialog visible={false} blockScroll closeIcon={true} 
-    className="flex p-5  w-[50%]  bg-white  border relative border-gray-300 rounded-xl">
-        <section className="w-full h-full justify-between flex flex-col gap-2">
+    <Dialog 
+        visible={false} blockScroll closeIcon={true} 
+        contentStyle={StyleGlobal.StyleContentDialogs}
+        maskClassName={StyleGlobal.StyleMaskDialogs}
+        className="flex p-5  w-[50%]  bg-white  border relative border-gray-300 rounded-xl">
+
+    <section className="w-full h-full justify-between flex flex-col gap-2">
         <div className="flex justify-between items-center ">
             <div className="flex gap-2 items-center">
             <button className="rounded-full bg-blue-50 p-1">
@@ -43,7 +48,8 @@ export default function PopUpAsignarCaso() {
         <div className="flex  flex-col gap-1">
             <h2 className="text-gray-500">Oficina:</h2>
             <Dropdown
-            className="border border-gray-300 rounded-md p-2"
+            className={StyleGlobal.StyleBodyDropDown}
+            panelClassName={StyleGlobal.StyleDropDown}
             options={DataDropDown}
             placeholder="Selecciona la oficina"
             optionLabel="name"
@@ -54,7 +60,8 @@ export default function PopUpAsignarCaso() {
         <div className="flex  flex-col gap-1">
             <h2 className="text-gray-500">Departamento:</h2>
             <Dropdown
-            className="border border-gray-300 rounded-md p-2"
+            className={StyleGlobal.StyleBodyDropDown}
+            panelClassName={StyleGlobal.StyleDropDown}
             options={DataDropDown}
             placeholder="Seleccion el departamento"
             optionLabel="name"
@@ -72,7 +79,8 @@ export default function PopUpAsignarCaso() {
         <div className="flex flex-col gap-2">
             <h2 className="text-gray-500">Razon: <span className="text-red-600">*</span></h2>
             <Dropdown
-            className="border border-gray-300 rounded-md p-2"
+            className={StyleGlobal.StyleBodyDropDown}
+            panelClassName={StyleGlobal.StyleDropDown}
             options={DataDropDown}
             placeholder="Seleccion el departamento"
             optionLabel="name"
