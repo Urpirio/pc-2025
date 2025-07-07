@@ -79,24 +79,11 @@ export default function SectionTablaTipos() {
         </div>
         </div>
         <div >
-        <DataTable  value={DataTabla} className='
-   w-full
-   rounded-md
-   text-sm
-   [&_th]:text-gray-500
-   [&_th>div]:flex
-   [&_th>div]:items-center
-   [&_th>div]:gap-2
-   [&_th]:p-3
-   [&_td]:p-3
-   [&_td]:border-gray-300
-   [&_td]:text-gray-900
-   [&_td]:border-t
-   [&_td]:py-3
-
-   [&_td>div]:gap-2
-
-  '>
+        <DataTable  
+        className={"border w-full border-gray-300  overflow-hidden rounded-xl"}
+        tableClassName={" [&_thead>tr>th>div]:flex [&_thead>tr>th>div]:gap-5 [&_thead>tr>th]:text-gray-500 [&_thead>tr>th]:p-2 [&_thead]:bg-white" }
+        rowClassName={' p-5 [&_td]:p-3 [&_td]:border-t [&_td]:border-gray-300'} 
+        value={DataTabla}>
           <Column field="ID" header={'ID'} />
           <Column field="Via"  header={'Via'}  />
           <Column field="TipoCaso" header={'Tipo de caso'} body={(Data)=><Tipo_de_caso Status={Data.TipoCaso}/>}/>
