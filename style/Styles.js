@@ -8,4 +8,4 @@ export const StyleGlobal = {
     StyleContentDialogs: {scrollbarWidth:'none'},
     StyleInput: "border border-gray-300 rounded-md p-2 outline-0 text-gray-500 w-full shadow-2xs",
     StyleBuscadores:"border border-gray-300 p-2 rounded-md outline-0 text-gray-500 w-70 shadow-2xs",
-}
+};
