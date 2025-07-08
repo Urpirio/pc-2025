@@ -9,6 +9,7 @@ import PopUpCambioEstado from "../../../../components/components - Bandeja-casos
 import PopUpCambioEstado2 from "../../../../components/components - Bandeja-casos/subcomponents/Pop-Up/Pop-Up-CambioEstado2";
 import PopUpAsignarCaso from "../../../../components/components - Bandeja-casos/subcomponents/Pop-Up/Pop-Up-AsignarCaso";
 import PopupMiniAsignarCasos from "../../../../components/components - Bandeja-casos/subcomponents/Pop-Up/Pop-up-MiniAsignarCasos";
+import Pop_Up_AdjuntarArchivos from "../../../../components/components - Bandeja-casos/subcomponents/Pop-Up/Pop-Up-AdjuntarArchivos";
 
 export default async function page({params}) {
 
@@ -27,6 +28,7 @@ export default async function page({params}) {
       <PopUpCambioEstado2/>
       <PopUpAsignarCaso/>
       <PopupMiniAsignarCasos/>
+      <Pop_Up_AdjuntarArchivos/>
     </div>
   )
 }
